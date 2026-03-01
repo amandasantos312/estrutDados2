@@ -1,13 +1,21 @@
-#include <arv.h>
-
-Arv R = NULL;
+#include "arv.h"
 
 int main() {
-    R = arv(arv(arv(NULL, 4, NULL), 2, arv(NULL, 5, NULL)),
-            1, 
-            arv(NULL, 3, arv(NULL, 6, NULL)));         
+    Arv R = arv(arv(arv(NULL, 
+                        4, NULL), 
+                    2, arv(NULL, 
+                        5, NULL)),
+                1, 
+                arv(NULL, 
+                    3, 
+                    arv(NULL,
+                        6, 
+                        NULL))); 
 
-    printf("Raiz: " fmt "\n", R->item);        
+    printf("Exibicao Em Ordem: ");
+    emOrdem(R);
+
+    destroi(&R);      
 
     return 0;
 }

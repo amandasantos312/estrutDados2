@@ -19,26 +19,26 @@ Arv arv (Arv e, Item x, Arv d) {
 }
 
 //Em Ordem:
-void emordem(Arv A) {
+void emOrdem(Arv A) {
     if (A == NULL) return;
-    emordem(A->esq);
+    emOrdem(A->esq);
     printf(fmt, A->item);
-    emordem(A->dir);
+    emOrdem(A->dir);
 }
 
 //Pre Ordem:
-void preordem(Arv A) {
+void preOrdem(Arv A) {
     if (A == NULL) return;
     printf(fmt, A->item);
-    preordem(A->esq);
-    preordem(A->dir);   
+    preOrdem(A->esq);
+    preOrdem(A->dir);   
 }
 
 //Pos Ordem:
-void posordem(Arv A) {
+void posOrdem(Arv A) {
     if (A == NULL) return;
-    posordem(A->esq);
-    posordem(A->dir);
+    posOrdem(A->esq);
+    posOrdem(A->dir);
     printf(fmt, A->item);
 }
 
@@ -67,7 +67,7 @@ int busca(Item x, Arv A) {
 }
 
 //Remoção em árvore de busca binária:
-Item remmax(Arv *A) {
+Item remMax(Arv *A) {
     if (*A == NULL) abort();
     while ( (*A)->dir != NULL) A = &(*A)->dir;
     Arv n = *A;
