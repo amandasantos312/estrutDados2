@@ -12,13 +12,13 @@ int main() {
                         6, 
                         NULL))); 
 
-    printf("Pos Ordem(r/esq,dir): ");
+    printf("Pos Ordem(esq/dir/r): ");
     posOrdem(R);
 
     printf("\nEm Ordem(esq/r/dir): ");
     emOrdem(R);
 
-    printf("\nPre Ordem(esq/dir/r): ");
+    printf("\nPre Ordem(r/esq,dir): ");
     preOrdem(R);
 
     printf("\nTotal de nos: %d\n", nos(R));
