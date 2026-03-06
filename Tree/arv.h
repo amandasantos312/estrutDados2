@@ -42,6 +42,25 @@ void posOrdem(Arv A) {
     printf(fmt, A->item);
 }
 
+//Total de nós:
+int nos(Arv A) {
+    if (A == NULL) {
+        return 0;
+    }
+    return 1 + nos(A->esq) + nos(A->dir);
+}
+
+//Total de folhas:
+int folhas(Arv A) {
+    if (A == NULL) return 0;
+
+    //Se não tem filhos à esquerda nem à direita, é uma folha!
+    if (A->esq == NULL && A->dir == NULL) return 1;
+
+    //Se não for folha, continua procurando nos dois lados
+    return folhas(A->esq) + folhas(A->dir);
+}
+
 //Destruição de árvore binária:
 void destroi(Arv *A) {
     if (A == NULL) return;
@@ -59,12 +78,38 @@ void ins(Item x, Arv *A) {
 }
 
 //Busca em árvore de busca binária:
-int busca(Item x, Arv A) {
-    if (A == NULL) return 0;
+/*int busca(Item x, Arv A) {
+    if (A == NULL) return 0; 
     if (x == A->item) return 1;
+
     if (x <= A->item) return busca(x, A->esq);
     else return busca(x, A->dir);
+}*/
+
+int tem(Arv A, Item x) {
+    if (A == NULL) return 0;
+
+    if (x == A->item) return 1;
+
+    return tem(A->esq, x) || tem(A->dir, x);
 }
+
+//Estritamente binária:
+int eb(Arv A) {
+    //Árvore vazia é estritamente binária
+    if (A == NULL) return 1;
+
+    // Se for uma folha (zero filhos), é tbm
+    if (A->esq == NULL && A->dir == NULL) return 1;
+
+    // Se tiver os dois filhos, precisamos verificar se os filhos também são estritamente binários
+    if (A->esq != NULL && A->dir != NULL) {
+        return eb(A->esq) && eb(A->dir);
+    }
+}
+
+
+
 
 //Remoção em árvore de busca binária:
 Item remMax(Arv *A) {

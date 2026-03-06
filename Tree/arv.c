@@ -12,8 +12,32 @@ int main() {
                         6, 
                         NULL))); 
 
-    printf("Exibicao Em Ordem: ");
+    printf("Pos Ordem(r/esq,dir): ");
+    posOrdem(R);
+
+    printf("\nEm Ordem(esq/r/dir): ");
     emOrdem(R);
+
+    printf("\nPre Ordem(esq/dir/r): ");
+    preOrdem(R);
+
+    printf("\nTotal de nos: %d\n", nos(R));
+    printf("Total de folhas: %d\n", folhas(R));
+
+    if(tem(R, 5)) {
+        printf("\nO item 5 esta na arvore!\n");
+    } else {
+        printf("Item nao encontrado!");
+    }
+
+    printf("\nEstritamente binaria (1-sim 0-nao)");
+    int resultado = eb(R);
+    printf("\n%d", resultado);
+
+    
+
+
+
 
     destroi(&R);      
 
