@@ -122,3 +122,17 @@ Item remMax(Arv *A) {
     free(n);
     return x;
 }
+
+void rem(Item  x, Arv *A) {
+    if (*A == NULL) return;
+
+    if (x == (*A)->item) {
+        Arv n = *A;
+        if (n->esq == NULL) *A = n->dir;
+        else if (n->dir == NULL) *A = n->esq;
+        else n->item = remMax(&n->esq);
+        if (n != *A) free(n);
+    }
+    else if (x <= (*A)->item) rem(x, &(*A)->esq);
+    else rem(x, &(*A)->dir);
+}
