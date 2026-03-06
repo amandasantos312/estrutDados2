@@ -78,13 +78,13 @@ void ins(Item x, Arv *A) {
 }
 
 //Busca em árvore de busca binária:
-/*int busca(Item x, Arv A) {
+int busca(Item x, Arv A) {
     if (A == NULL) return 0; 
     if (x == A->item) return 1;
 
     if (x <= A->item) return busca(x, A->esq);
     else return busca(x, A->dir);
-}*/
+}
 
 int tem(Arv A, Item x) {
     if (A == NULL) return 0;
